@@ -32,16 +32,32 @@
       <file href="style.css"/>
       <file href="scorm_api.js"/>
       <file href="app.js"/>
-      <file href="EN Intro (720p).mp4"/>
-      <file href="BN INTRO (720p).mp4"/>
-      <file href="Cleaning, Nest Hunting &amp; Chemical Treatment EN (720p).mp4"/>
-      <file href="Cleaning, Nest Hunting &amp; Chemical Treatment BN (720p).mp4"/>
-      <file href="3D Trap Placement Concept — Nest Hunting  3D ট্র্যাপ স্থাপন ধারণা — বাসা অনুসন্ধান.png"/>
-      <file href="Airflow  Wind Direction in Narrowing Logic  সীমানা সংকোচনে বায়ুপ্রবাহ  বায়ুর দিক.png"/>
-      <file href="Images/Slide 1.png"/>
-      <file href="Images/Slide 2 - Trap Types.jpg"/>
-      <file href="Images/Slide 7 - Chemical &amp; Physical Treatment.png"/>
-      <file href="Proximity-Based Narrowing Down -নৈকট্য-ভিত্তিক সীমানা সংকোচন.png"/>
+      <file href="data/config.js"/>
+      <file href="data/slides/01-learning-objectives.js"/>
+      <file href="data/slides/02-iici-monitoring-intro.js"/>
+      <file href="data/slides/03-trap-categories.js"/>
+      <file href="data/slides/04-key-terms.js"/>
+      <file href="data/slides/05-cleaning.js"/>
+      <file href="data/slides/06-nest-hunting.js"/>
+      <file href="data/slides/07-chemical-treatment.js"/>
+      <file href="data/slides/08-flowchart-monitoring.js"/>
+      <file href="data/slides/09-flowchart-cleaning.js"/>
+      <file href="data/slides/10-flowchart-chemical-treatment.js"/>
+      <file href="data/slides.js"/>
+      <file href="data/quizzes.js"/>
+      <file href="media/videos/EN Intro (720p).mp4"/>
+      <file href="media/videos/BN INTRO (720p).mp4"/>
+      <file href="media/videos/Cleaning, Nest Hunting &amp; Chemical Treatment EN (720p).mp4"/>
+      <file href="media/videos/Cleaning, Nest Hunting &amp; Chemical Treatment BN (720p).mp4"/>
+      <file href="media/images/3D Trap Placement Concept — Nest Hunting  3D ট্র্যাপ স্থাপন ধারণা — বাসা অনুসন্ধান.png"/>
+      <file href="media/images/Airflow  Wind Direction in Narrowing Logic  সীমানা সংকোচনে বায়ুপ্রবাহ  বায়ুর দিক.png"/>
+      <file href="media/images/Slide 1.png"/>
+      <file href="media/images/Slide 2 - Trap Types.jpg"/>
+      <file href="media/images/Slide 7 - Chemical &amp; Physical Treatment.png"/>
+      <file href="media/images/Slide 8 (New) - Flowchart of Infestation Monitoring and Beetle Trap Management.png"/>
+      <file href="media/images/Slide 9 (New) - Flowchart of Infestation Prevention &amp; Control - Cleaning.png"/>
+      <file href="media/images/Slide 10 (New) - Flowchart of Infestation Prevention &amp; Control - Chemical and Physical Treatment.png"/>
+      <file href="media/images/Proximity-Based Narrowing Down -নৈকট্য-ভিত্তিক সীমানা সংকোচন.png"/>
     </resource>
   </resources>
 </manifest>
