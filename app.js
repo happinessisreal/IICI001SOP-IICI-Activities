@@ -104,9 +104,7 @@
     // Bind image overlay
     if (overlayClose) overlayClose.addEventListener("click", closeImageModal);
     if (imageOverlay) {
-      imageOverlay.addEventListener("click", (e) => {
-        if (e.target === imageOverlay) closeImageModal();
-      });
+      imageOverlay.addEventListener("click", closeImageModal);
     }
 
     // Handle window close
