@@ -8,9 +8,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Mobile top bar (hidden on desktop) -->
+  <div class="mobile-topbar" id="mobile-topbar">
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Open menu">☰</button>
+    <span class="mobile-title">IICI Activities</span>
+    <span class="mobile-counter" id="mobile-counter">1/10</span>
+  </div>
+
+  <!-- Sidebar backdrop overlay (mobile only) -->
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
   <div class="module-container">
-    
-    <aside class="sidebar-panel">
+
+    <aside class="sidebar-panel" id="sidebar-panel">
+      <button class="sidebar-close-btn" id="sidebar-close-btn" aria-label="Close menu">✕</button>
       <!-- Header -->
       <header class="module-header">
         <h1 id="module-title">IICI001SOP — IICI Activities</h1>

@@ -28,6 +28,82 @@
   --radius-sm: 10px;
   --shadow: 0 8px 32px rgba(22, 163, 74, 0.08);
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --z-sidebar: 1000;
+  --z-backdrop: 900;
+  --z-topbar: 800;
+}
+
+/* --- Mobile Elements --- */
+.mobile-topbar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--surface-border);
+  padding: 0 16px;
+  align-items: center;
+  justify-content: space-between;
+  z-index: var(--z-topbar);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.hamburger-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 8px;
+  margin-left: -8px;
+}
+
+.mobile-title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--primary-dark);
+}
+
+.mobile-counter {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: var(--z-backdrop);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-backdrop.active {
+  display: block;
+  opacity: 1;
+}
+
+.sidebar-close-btn {
+  display: none;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
 }
 
 /* --- Reset & Base --- */
@@ -680,30 +756,215 @@ body {
 }
 
 
-/* --- Responsive --- */
+/* --- Responsive: Tablet (≤ 960px) --- */
 @media (max-width: 960px) {
-  .module-container { 
-    grid-template-columns: 1fr; 
-    padding: 20px;
-    gap: 24px;
+  .mobile-topbar { display: flex; }
+  
+  .module-container {
+    grid-template-columns: 1fr;
+    padding: 76px 16px 24px; /* Space for topbar */
+    gap: 20px;
   }
+
   .sidebar-panel {
-    position: relative;
+    position: fixed;
     top: 0;
-    max-height: none;
-    overflow-y: visible;
+    left: 0;
+    width: 320px;
+    height: 100vh;
+    max-height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: var(--z-sidebar);
+    padding: 24px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.15);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .sidebar-panel.active {
+    transform: translateX(0);
+  }
+
+  .sidebar-close-btn { display: flex; }
+
+  .slide-area { padding: 28px 24px; }
+  .slide-title { font-size: 1.25rem; }
+
+  /* Make tables horizontally scrollable */
+  .slide-content .table { display: block; overflow-x: auto; }
+
+  /* Responsive videos */
+  .slide-content video { width: 100%; height: auto; }
+
+  /* Responsive images: override inline max-width */
+  .slide-content img { max-width: 100% !important; height: auto !important; }
+
+  .results-card { padding: 32px 24px; }
+}
+
+/* --- Responsive: Mobile (≤ 640px) --- */
+@media (max-width: 640px) {
+  html { font-size: 15px; }
+
+  .module-container {
+    padding: 70px 10px 20px;
+    gap: 14px;
+  }
+
+  .sidebar-panel {
+    width: 280px;
+  }
+
+  /* Header */
+  .module-header {
+    padding: 20px 14px;
+    border-radius: var(--radius-sm);
+  }
+  .module-header h1 { font-size: 1.2rem; }
+  .module-header .module-desc { font-size: 0.82rem; }
+
+  /* Language toggle */
+  .lang-btn { padding: 5px 16px; font-size: 0.75rem; }
+
+  /* Progress */
+  .progress-info { font-size: 0.72rem; }
+
+  /* Slide menu */
+  .menu-item {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+  }
+
+  /* Slide content */
+  .slide-area {
+    padding: 20px 14px;
+    border-radius: var(--radius-sm);
+  }
+  .slide-title { font-size: 1.1rem; margin-bottom: 14px; }
+  .slide-content { font-size: 0.88rem; line-height: 1.7; }
+  .slide-content h3 { font-size: 1rem; margin: 14px 0 6px; }
+  .slide-content ul { padding-left: 16px; }
+
+  /* Cards grid → single column */
+  .commitments-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .commitment-card {
+    padding: 24px 18px;
+  }
+
+  /* Nav bar: compact touch-friendly buttons */
+  .nav-bar {
+    gap: 8px;
+    padding: 0 2px;
+  }
+  .nav-btn {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    border-radius: 12px;
+  }
+  .slide-counter { display: none; } /* Hidden on mobile as it is in topbar */
+
+  /* Quiz */
+  .quiz-header h2 { font-size: 1.2rem; }
+  .quiz-question-card {
+    padding: 18px 14px;
+    margin-bottom: 14px;
+    border-radius: var(--radius-sm);
+  }
+  .question-text { font-size: 0.92rem; margin-bottom: 14px; }
+  .quiz-option-btn { padding: 11px 14px; font-size: 0.85rem; }
+
+  /* Results */
+  .results-card {
+    padding: 28px 18px;
+    border-radius: var(--radius-sm);
+  }
+  .results-card .score-circle {
+    width: 110px;
+    height: 110px;
+    font-size: 1.8rem;
+  }
+  .results-card h2 { font-size: 1.15rem; }
+  .results-card .result-status { font-size: 0.82rem; }
+
+  /* Table cells tighter on mobile */
+  .table th,
+  .table td { padding: 8px 10px; font-size: 0.8rem; }
+  
+  /* Stacked Table Layout for small screens (Vertical Card Style) */
+  .table-bordered { border: none; }
+  .table thead { display: none; } /* Hide headers */
+  .table tbody, .table tr, .table td { display: block; width: 100%; }
+  
+  .table tbody tr {
+    margin-bottom: 20px;
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius);
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  }
+  
+  .table td {
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--surface-border);
+    position: relative;
+    padding-left: 16px; 
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .table td:last-child { border-bottom: none; }
+  
+  .table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.8;
+  }
+  
+  /* Styling cell content in stacked mode */
+  .table td {
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.9rem;
   }
 }
 
-@media (max-width: 640px) {
-  .module-container { padding: 12px; }
-  .module-header { padding: 24px 16px; }
-  .module-header h1 { font-size: 1.3rem; }
-  .slide-area { padding: 24px 18px; }
-  .slide-title { font-size: 1.15rem; }
-  .commitments-grid { grid-template-columns: 1fr; }
-  .nav-btn { padding: 10px 18px; font-size: 0.82rem; }
-  .quiz-question-card { padding: 20px; }
+/* --- Responsive: Small Mobile (≤ 400px) --- */
+@media (max-width: 400px) {
+  html { font-size: 14px; }
+  .module-container { padding: 6px; gap: 10px; }
+  .module-header { padding: 16px 10px; }
+  .module-header h1 { font-size: 1.05rem; }
+
+  .slide-area { padding: 16px 10px; }
+  .slide-title { font-size: 1rem; }
+
+  .nav-btn { padding: 8px 12px; font-size: 0.75rem; }
+
+  .quiz-question-card { padding: 14px 10px; }
+  .quiz-option-btn { padding: 10px 12px; font-size: 0.8rem; }
+
+  .results-card .score-circle {
+    width: 90px;
+    height: 90px;
+    font-size: 1.5rem;
+  }
+  .results-card h2 { font-size: 1.05rem; }
+
+  .commitment-card { padding: 18px 14px; }
+  .commitment-card .number { font-size: 1.6rem; }
+  .commitment-card .title { font-size: 0.9rem; }
 }
 
 /* --- Modern Table Styling --- */

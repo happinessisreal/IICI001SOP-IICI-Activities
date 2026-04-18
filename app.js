@@ -41,6 +41,13 @@
   const langBtns = document.querySelectorAll(".lang-btn");
   const slideMenu = document.getElementById("slide-menu");
 
+  // Mobile drawer refs
+  const sidebarPanel = document.getElementById("sidebar-panel");
+  const sidebarBackdrop = document.getElementById("sidebar-backdrop");
+  const hamburgerBtn = document.getElementById("hamburger-btn");
+  const sidebarCloseBtn = document.getElementById("sidebar-close-btn");
+  const mobileCounter = document.getElementById("mobile-counter");
+
   /* ---- Initialization ---- */
   function init() {
     ScormAPI.init();
@@ -83,6 +90,11 @@
     // Bind nav
     btnPrev.addEventListener("click", prevSlide);
     btnNext.addEventListener("click", nextSlide);
+
+    // Bind mobile drawer
+    hamburgerBtn.addEventListener("click", toggleSidebar);
+    sidebarCloseBtn.addEventListener("click", toggleSidebar);
+    sidebarBackdrop.addEventListener("click", toggleSidebar);
 
     // Handle window close
     window.addEventListener("beforeunload", () => {
@@ -136,6 +148,12 @@
         saveState();
       });
     });
+  }
+
+  /* ---- Sidebar Toggle ---- */
+  function toggleSidebar() {
+    sidebarPanel.classList.toggle("active");
+    sidebarBackdrop.classList.toggle("active");
   }
 
   /* ---- Slide Menu ---- */
@@ -209,6 +227,13 @@
       btnNext.classList.remove("primary-btn");
     }
     btnNext.disabled = false;
+
+    // Mobile specific: Close sidebar and update counter
+    sidebarPanel.classList.remove("active");
+    sidebarBackdrop.classList.remove("active");
+    if (mobileCounter) {
+      mobileCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+    }
 
     // Bind options-list interactive buttons
     bindScenarioButtons();
