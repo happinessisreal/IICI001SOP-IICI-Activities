@@ -48,6 +48,11 @@
   const sidebarCloseBtn = document.getElementById("sidebar-close-btn");
   const mobileCounter = document.getElementById("mobile-counter");
 
+  // Image Lightbox refs
+  const imageOverlay = document.getElementById("image-overlay");
+  const overlayImg = document.getElementById("overlay-img");
+  const overlayClose = document.getElementById("overlay-close");
+
   /* ---- Initialization ---- */
   function init() {
     ScormAPI.init();
@@ -95,6 +100,14 @@
     hamburgerBtn.addEventListener("click", toggleSidebar);
     sidebarCloseBtn.addEventListener("click", toggleSidebar);
     sidebarBackdrop.addEventListener("click", toggleSidebar);
+
+    // Bind image overlay
+    if (overlayClose) overlayClose.addEventListener("click", closeImageModal);
+    if (imageOverlay) {
+      imageOverlay.addEventListener("click", (e) => {
+        if (e.target === imageOverlay) closeImageModal();
+      });
+    }
 
     // Handle window close
     window.addEventListener("beforeunload", () => {
@@ -154,6 +167,29 @@
   function toggleSidebar() {
     sidebarPanel.classList.toggle("active");
     sidebarBackdrop.classList.toggle("active");
+  }
+
+  /* ---- Image Modal ---- */
+  function openImageModal(src) {
+    if (!imageOverlay || !overlayImg) return;
+    overlayImg.src = src;
+    imageOverlay.classList.add("active");
+    document.body.style.overflow = "hidden"; // Prevent scrolling
+  }
+
+  function closeImageModal() {
+    if (!imageOverlay) return;
+    imageOverlay.classList.remove("active");
+    document.body.style.overflow = ""; // Restore scrolling
+  }
+
+  function bindImagePopups() {
+    const images = slideArea.querySelectorAll("img");
+    images.forEach((img) => {
+      img.addEventListener("click", () => {
+        openImageModal(img.src);
+      });
+    });
   }
 
   /* ---- Slide Menu ---- */
@@ -237,6 +273,9 @@
 
     // Bind options-list interactive buttons
     bindScenarioButtons();
+
+    // Bind image popups
+    bindImagePopups();
 
     ScormAPI.setStatus("incomplete");
     saveState();
