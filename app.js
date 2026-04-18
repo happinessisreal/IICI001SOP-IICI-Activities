@@ -190,6 +190,16 @@
     });
   }
 
+  /* ---- Video Lazy Loading ---- */
+  function initSlideVideos() {
+    const videos = slideArea.querySelectorAll("video");
+    videos.forEach((video) => {
+      // Trigger load for the current slide's videos
+      // This allows us to use preload="none" globally and only load on demand
+      video.load();
+    });
+  }
+
   /* ---- Slide Menu ---- */
   function renderMenu() {
     if (!slideMenu) return;
@@ -274,6 +284,9 @@
 
     // Bind image popups
     bindImagePopups();
+
+    // Initialize/Lazy-load videos on current slide
+    initSlideVideos();
 
     ScormAPI.setStatus("incomplete");
     saveState();
