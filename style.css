@@ -381,12 +381,19 @@ body {
   cursor: pointer;
   transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, background 0.3s ease;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  
+  /* Safari rendering fix */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .commitment-card:hover {
   background: var(--bg-card-hover);
   border-color: var(--primary);
-  transform: translateY(-10px); /* Lift gently */
+  -webkit-transform: translate3d(0, -10px, 0);
+  transform: translate3d(0, -10px, 0); /* Lift gently */
   box-shadow: 0 42px 84px rgba(22, 163, 74, 0.18);
   z-index: 50; /* Ensure it stays on top */
 }
@@ -417,6 +424,11 @@ body {
   opacity: 1;
   transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
   overflow: hidden;
+  
+  /* Safari rendering fix */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: max-height, opacity, margin;
 }
 
 .commitment-card:hover .hover-icon {
@@ -435,6 +447,11 @@ body {
   line-height: 1.6;
   margin-top: 0;
   transition: max-height 0.5s ease, opacity 0.5s ease, margin-top 0.5s ease;
+  
+  /* Safari rendering fix */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: max-height, opacity, margin-top;
 }
 
 .commitment-card:hover .hover-tooltip {
