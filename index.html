@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IICI Activities SOP — JTI Bangladesh SCORM Training Module">
+  <title>IICI001SOP - IICI Activities</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="module-container">
+    
+    <aside class="sidebar-panel">
+      <!-- Header -->
+      <header class="module-header">
+        <h1 id="module-title">IICI001SOP — IICI Activities</h1>
+        <p class="module-desc">Standardized procedures for detecting, controlling, and eliminating tobacco beetle infestation through monitoring, cleaning, and chemical treatment.</p>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="en">English</button>
+          <button class="lang-btn" data-lang="bn">বাংলা</button>
+        </div>
+      </header>
+
+      <!-- Progress -->
+      <div class="progress-wrapper">
+        <div class="progress-info">
+          <span id="progress-label">Slide 1 of 5</span>
+          <span id="progress-text">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+      <!-- Slide Menu -->
+      <div class="slide-menu" id="slide-menu"></div>
+    </aside>
+
+    <main class="main-panel">
+      <!-- Slide Area -->
+      <div class="slide-area" id="slide-area">
+        <h2 class="slide-title" id="slide-title"></h2>
+        <div class="slide-content" id="slide-content"></div>
+      </div>
+
+      <!-- Quiz Area (hidden by default) -->
+      <div class="quiz-area" id="quiz-area" style="display:none;"></div>
+
+      <!-- Navigation -->
+      <nav class="nav-bar">
+        <button class="nav-btn" id="btn-prev" disabled>← Previous</button>
+        <span class="slide-counter" id="slide-counter">1 / 5</span>
+        <button class="nav-btn" id="btn-next">Next →</button>
+      </nav>
+    </main>
+
+  </div>
+
+  <script src="scorm_api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

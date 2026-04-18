@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="IICI001_Activities_Manifest"
+         version="1.0"
+         xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+         xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                             http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
+                             http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+
+  <organizations default="IICI001_Org">
+    <organization identifier="IICI001_Org">
+      <title>IICI001SOP - IICI Activities</title>
+      <item identifier="IICI001_Item" identifierref="IICI001_Resource">
+        <title>IICI001SOP - IICI Activities</title>
+        <adlcp:masteryscore>80</adlcp:masteryscore>
+      </item>
+    </organization>
+  </organizations>
+
+  <resources>
+    <resource identifier="IICI001_Resource"
+              type="webcontent"
+              adlcp:scormtype="sco"
+              href="index.html">
+      <file href="index.html"/>
+      <file href="style.css"/>
+      <file href="scorm_api.js"/>
+      <file href="app.js"/>
+      <file href="EN Intro (720p).mp4"/>
+      <file href="BN INTRO (720p).mp4"/>
+      <file href="Cleaning, Nest Hunting &amp; Chemical Treatment EN (720p).mp4"/>
+      <file href="Cleaning, Nest Hunting &amp; Chemical Treatment BN (720p).mp4"/>
+      <file href="3D Trap Placement Concept — Nest Hunting  3D ট্র্যাপ স্থাপন ধারণা — বাসা অনুসন্ধান.png"/>
+      <file href="Airflow  Wind Direction in Narrowing Logic  সীমানা সংকোচনে বায়ুপ্রবাহ  বায়ুর দিক.png"/>
+      <file href="Images/Slide 1.png"/>
+      <file href="Images/Slide 2 - Trap Types.jpg"/>
+      <file href="Images/Slide 7 - Chemical &amp; Physical Treatment.png"/>
+      <file href="Proximity-Based Narrowing Down -নৈকট্য-ভিত্তিক সীমানা সংকোচন.png"/>
+    </resource>
+  </resources>
+</manifest>
