@@ -911,6 +911,22 @@ body {
     padding: 24px 18px;
   }
 
+  /* Swap "Hover for details" → "Touch for details" on mobile */
+  .commitment-card .hover-icon {
+    font-size: 0;          /* hide the 🖱 emoji */
+  }
+  .commitment-card .hover-icon span {
+    font-size: 0;          /* hide original text */
+  }
+  .commitment-card .hover-icon::before {
+    content: '👆 ';
+    font-size: 0.75rem;
+  }
+  .commitment-card .hover-icon span::after {
+    content: 'Touch for details';
+    font-size: 0.75rem;
+  }
+
   /* Nav bar: compact touch-friendly buttons */
   .nav-bar {
     gap: 8px;
