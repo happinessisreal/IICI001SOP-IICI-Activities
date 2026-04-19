@@ -70,6 +70,38 @@
   color: var(--primary-dark);
 }
 
+.mobile-lang-toggle {
+  display: flex;
+  gap: 0;
+  align-items: center;
+}
+
+.mobile-lang-toggle .lang-btn {
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: 1px solid var(--surface-border);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+.mobile-lang-toggle .lang-btn:first-child {
+  border-radius: 999px 0 0 999px;
+}
+
+.mobile-lang-toggle .lang-btn:last-child {
+  border-radius: 0 999px 999px 0;
+}
+
+.mobile-lang-toggle .lang-btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
 .mobile-counter {
   font-size: 0.8rem;
   color: var(--text-muted);
