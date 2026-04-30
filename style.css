@@ -174,7 +174,7 @@ body {
 .sidebar-panel {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
   position: sticky;
   top: 24px;
   max-height: calc(100vh - 48px);
@@ -195,12 +195,13 @@ body {
 /* --- Header --- */
 .module-header {
   text-align: center;
-  padding: 32px 24px;
+  padding: 20px 18px;
   background: linear-gradient(135deg, rgba(22,163,74,0.08), rgba(5,150,105,0.06));
   border: 1px solid var(--surface-border);
   border-radius: var(--radius);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  flex-shrink: 0;
 }
 
 .module-header::before {
@@ -212,6 +213,10 @@ body {
   height: 200%;
   background: radial-gradient(circle, rgba(22,163,74,0.08) 0%, transparent 70%);
   animation: headerGlow 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+  clip-path: inset(0 round var(--radius));
 }
 
 @keyframes headerGlow {
@@ -220,22 +225,23 @@ body {
 }
 
 .module-header h1 {
-  font-size: 1.75rem;
+  font-size: 1.4rem;
   font-weight: 800;
   background: linear-gradient(135deg, var(--primary), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   position: relative;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .module-header .module-desc {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   max-width: 680px;
   margin: 0 auto;
   position: relative;
+  line-height: 1.5;
 }
 
 /* --- Language Toggle --- */
@@ -243,7 +249,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 4px;
-  margin-top: 16px;
+  margin-top: 10px;
   position: relative;
 }
 
@@ -270,6 +276,10 @@ body {
 }
 
 
+
+.progress-wrapper {
+  flex-shrink: 0;
+}
 
 .progress-info {
   display: flex;
@@ -299,21 +309,21 @@ body {
 .slide-menu {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  margin-top: 16px;
+  gap: 1px;
+  margin-top: 8px;
   border-top: 1px solid var(--surface-border);
-  padding-top: 16px;
+  padding-top: 8px;
 }
 
 .menu-item {
   width: 100%;
   text-align: left;
-  padding: 10px 16px;
+  padding: 7px 14px;
   background: transparent;
   border: none;
   border-left: 3px solid transparent;
   color: var(--text);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 500;
   cursor: pointer;
   transition: var(--transition);
@@ -806,6 +816,52 @@ body {
 
 .results-actions {
   margin-top: 24px;
+}
+
+/* --- Responsive: Short viewport / MDPI laptops (≤ 800px height) --- */
+@media (max-height: 800px) {
+  .module-container {
+    padding: 16px 32px;
+  }
+
+  .sidebar-panel {
+    gap: 10px;
+    top: 16px;
+    max-height: calc(100vh - 32px);
+  }
+
+  .module-header {
+    padding: 16px 16px;
+  }
+
+  .module-header h1 {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+  }
+
+  .module-header .module-desc {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .lang-toggle {
+    margin-top: 8px;
+  }
+
+  .lang-btn {
+    padding: 4px 14px;
+    font-size: 0.72rem;
+  }
+
+  .progress-info {
+    font-size: 0.72rem;
+    margin-bottom: 4px;
+  }
+
+  .menu-item {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
 }
 
 
